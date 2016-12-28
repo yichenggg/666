@@ -1,0 +1,12 @@
+{
+  "name":"MVC PHP",
+  "description":"PHP Framework",
+  "type":"Framework",
+  "keywords":[
+    "PHP","PHP Framework"
+  ],
+  "require":{
+    "PHP":">= 5.3.0",
+    "twig/twig":"*",
+  }
+}
