@@ -4,8 +4,8 @@ namespace core\lib;
 // use core\lib\conf;
 class route
 {
-	  public $controller;
-      public $action;
+	public $controller;
+    public $action;
 	public  function __construct()
 	{
 		// p('route ok');
@@ -20,7 +20,15 @@ class route
 	        if(isset($_SERVER['REQUEST_URI']) && $_SERVER['REQUEST_URI'] != '/')
 	        {
 	            $path = $_SERVER['REQUEST_URI'];
-	            // var_dump($path);die;  
+	            if($path=='/MVC/')
+	            {
+	            	$path='/Index/';
+	            } 
+	            else
+	            {
+	            	echo 'false';
+	            }
+	            // die();
 	            $patharr = explode('/', trim($path, '/'));
 	            if(isset($patharr[0])){
 	                $this->controller = $patharr[0];

@@ -14,7 +14,7 @@
 		<tr>
 			<td><?php echo $v['name'] ?></td>
 			<td><?php echo $v['pwd'] ?></td>
-			<td><a href="del?id=<?php echo  $v['id']  ?>">删除</a></td>
+			
 		</tr>
 		<?php endforeach ?>
 	</table>

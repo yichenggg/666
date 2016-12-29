@@ -4,32 +4,23 @@
 *  2.加载函数库
 *  3.启动框架
 */
-// 1.入口文件
-
-// 2.定义常量
-
-// 3.引入函数库
-
-// 4.自动加载类
-
-// 5.启动框架
-
-// 6.路由解析
-
-// 7.加载控制器
-
-// 8.返回结果
 //一  定义常量
 define('MVC',getcwd());	//当前框架的根目录	
 define('CORE','MVC'.'/core');//框架核心文件夹
 define('APP','MVC'.'/app');//项目文件
-define('model', 'app');
-
-//定义是否开启调错模式；
+define('MODULE', 'app');
 define('DEBUG',true);//是否开启调错模式 默认true
+
+include "vendor/autoload.php";
 
 if(DEBUG)
 {
+	$monolog=new \Whoops\Run;
+	$errorTitle='框架出错了';
+	$option =new \Whoops\Handler\PrettyPageHandler();
+	$option->setPageTitle($errorTitle);
+	$monolog->pushHandler($option);
+	$monolog->register();
 	ini_set('display_error','On');
 }
 else
@@ -37,6 +28,7 @@ else
 	ini_set('display_error','Off');
 }
 
+// dump($_SERVER);exit;
 //加载函数库
 include './core/common/function.php';
 

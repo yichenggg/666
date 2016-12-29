@@ -5,8 +5,17 @@
   "keywords":[
     "PHP","PHP Framework"
   ],
-  "require":{
-    "PHP":">= 5.3.0",
-    "twig/twig":"*",
+    "require": {
+         "PHP":">= 5.3.0",
+         "filp/whoops":"*",
+         "symfony/var-dumper":"*",
+         "catfan/medoo":"*",
+         "twig/twig":"*"
+    },
+      "repositories": {
+      "packagist": {
+          "type": "composer",
+          "url": "https://packagist.phpcomposer.com"
+      }
   }
 }

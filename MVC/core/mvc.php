@@ -26,20 +26,21 @@ class mvc
 		\core\lib\log::init();
 		// \core\lib\log::log($_SERVER,'server');//参数,存储文件名
 		$route = new \core\lib\route();
-		$ControllerName = ucfirst($route->controller);
+        // var_dump($route);die;
+		$ctrlname = ucfirst($route->controller);
 
         $ActionName = $route->action;
-        $ControllerFile =  './APP/controllers/' . $ControllerName . 'Controller.php';
+        $ctrf =  './APP/controllers/' . $ctrlname . 'Controller.php';
       
-        $ControllerClass = '\\' . model .'\controllers\\' . $ControllerName . 'Controller';
+        $ControllerClass = '\\' . MODULE .'\controllers\\' . $ctrlname . 'Controller';
        
-        if(is_file($ControllerFile)){
-            include $ControllerFile;
+        if(is_file($ctrf)){
+            include $ctrf;
             $controller = new $ControllerClass();
             $controller->$ActionName();
             \core\lib\log::log('ControllerClass:'.$ControllerClass.'     '.'action:'.$ActionName );
         }else{
-             echo "Not  fountd".$ControllerName;    
+             throw new \ErrorException("Not  fountd".$ctrlname);    
         }
 	}
 	static public  function load($class)
